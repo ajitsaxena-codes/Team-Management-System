@@ -2,7 +2,7 @@ require("dotenv").config()
 const express = require("express")
 const mongoose = require("mongoose")
 const { AuthRouter } = require("./Routes/auth.routes")
-// const { OwnerRouter } = require("./Routes/owner.routes")
+const { OwnerRouter } = require("./Routes/owner.routes")
 // const { AdminRouter } = require("./Routes/admin.routes")
 const cors = require("cors")
 const cp = require("cookie-parser")
@@ -17,8 +17,9 @@ app.use(cors({
 app.use(cp())
 app.use(express.json())
 app.use("/api/auth", AuthRouter)
-// app.use("/api/owner", OwnerRouter)
+app.use("/api/owner", OwnerRouter)
 // app.use("/api/admin", AdminRouter)
+
 
 
 
@@ -26,7 +27,7 @@ mongoose.connect(process.env.DB_URL)
 .then(() => {
     // addUser("Testing123!", "DemoUser", "demo@something.com", "admin")
 
-//    addOwner("maisabkabhagwan", "vikky", "vikky@example.com")
+//    addOwner("maisabkabhagwan", "neha", "neha@example.com")
 
     console.log("Database connected")
 
