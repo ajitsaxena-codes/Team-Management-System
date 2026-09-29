@@ -5,7 +5,11 @@ const {
     // deleteTask, getTaskById, getAllTasks,
      addTeam, getAllTeams, getTeamById, 
     deleteTeam, updateTeam, 
-    // createEmployee, getAllEmployeesByTeamId, updateEmployee, deleteEmployee, createTask, updateTask 
+    createEmployee, getAllEmployeesByTeamId, 
+    updateEmployee, 
+    deleteEmployee, 
+    // createTask, 
+    // updateTask 
     } = require("../Controllers/admin.controller")
 
 router.post(
@@ -59,31 +63,21 @@ router.patch(
 
 
 
-// router.post(
-//     "/teams/:teamId/employees",
-//     isLoggedIn,
-//     isOrganizationActive,
-//     authorize("admin"),
-//     createEmployee
-// )
+router.post(
+    "/teams/:teamId/employees",
+    isLoggedIn,
+    isOrganizationActive,
+    authorize("admin"),
+    createEmployee
+)
 
-// router.get(
-//     "/teams/:teamId/employees",
-//     isLoggedIn,
-//     isOrganizationActive,
-//     authorize("admin"),
-//     getAllEmployeesByTeamId
-// )
-
-
-
-// // router.get(
-// //     "/teams/:teamId/employees",
-// //     isLoggedIn,
-// //     isOrganizationActive,
-// //     authorize("admin"),
-// //     getAllEmployeesByTeamId
-// // )
+router.get(
+    "/teams/:teamId/employees",
+    isLoggedIn,
+    isOrganizationActive,
+    authorize("admin"),
+    getAllEmployeesByTeamId
+)
 
 
 
@@ -97,23 +91,36 @@ router.patch(
 
 
 
-// router.patch(
-//     "/employees/:employeeId",
-//     isLoggedIn,
-//     isOrganizationActive,
-//     authorize("admin"),
-//     updateEmployee
-// )
+// // router.get(
+// //     "/teams/:teamId/employees",
+// //     isLoggedIn,
+// //     isOrganizationActive,
+// //     authorize("admin"),
+// //     getAllEmployeesByTeamId
+// // )
 
 
 
-// router.delete(
-//     "/employees/:employeeId",
-//     isLoggedIn,
-//     isOrganizationActive,
-//     authorize("admin"),
-//     deleteEmployee
-// )
+router.delete(
+    "/employees/:employeeId",
+    isLoggedIn,
+    isOrganizationActive,
+    authorize("admin"),
+    deleteEmployee
+)
+
+
+router.patch(
+    "/employees/:employeeId",
+    isLoggedIn,
+    isOrganizationActive,
+    authorize("admin"),
+    updateEmployee
+)
+
+
+
+
 
 // /*
 //     - Admin's Task APIs
