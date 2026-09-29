@@ -2,14 +2,14 @@ const express = require("express")
 const router = express.Router()
 const{ authorize, isLoggedIn,isOrganizationActive} = require("../Middlewares/index")
 const { 
-    // deleteTask, getTaskById, getAllTasks,
+    deleteTask, getTaskById, getAllTasks,
      addTeam, getAllTeams, getTeamById, 
     deleteTeam, updateTeam, 
     createEmployee, getAllEmployeesByTeamId, 
     updateEmployee, 
     deleteEmployee, 
-    // createTask, 
-    // updateTask 
+    createTask, 
+    updateTask 
     } = require("../Controllers/admin.controller")
 
 router.post(
@@ -127,49 +127,49 @@ router.patch(
 // */
 
 
-// router.post(
-//     "/tasks/employee/:employeeId",
-//     isLoggedIn,
-//     isOrganizationActive,
-//     authorize("admin"),
-//     createTask
-// )
+router.post(
+    "/tasks/employee/:employeeId",
+    isLoggedIn,
+    isOrganizationActive,
+    authorize("admin"),
+    createTask
+)
 
-// router.get(
-//     "/tasks",
-//     isLoggedIn,
-//     isOrganizationActive,
-//     authorize("admin"),
-//     getAllTasks
-// )
-
-
-// router.get(
-//     "/tasks/:taskId",
-//     isLoggedIn,
-//     isOrganizationActive,
-//     authorize("admin"),
-//     getTaskById
-// )
+router.get(
+    "/tasks",
+    isLoggedIn,
+    isOrganizationActive,
+    authorize("admin"),
+    getAllTasks
+)
 
 
+router.get(
+    "/tasks/:taskId",
+    isLoggedIn,
+    isOrganizationActive,
+    authorize("admin"),
+    getTaskById
+)
 
-// router.delete(
-//     "/tasks/:taskId",
-//     isLoggedIn,
-//     isOrganizationActive,
-//     authorize("admin"),
-//     deleteTask
-// )
 
 
-// router.patch(
-//     "/tasks/:taskId",
-//     isLoggedIn,
-//     isOrganizationActive,
-//     authorize("admin"),
-//     updateTask
-// )
+router.delete(
+    "/tasks/:taskId",
+    isLoggedIn,
+    isOrganizationActive,
+    authorize("admin"),
+    deleteTask
+)
+
+
+router.patch(
+    "/tasks/:taskId",
+    isLoggedIn,
+    isOrganizationActive,
+    authorize("admin"),
+    updateTask
+)
 
 
 
