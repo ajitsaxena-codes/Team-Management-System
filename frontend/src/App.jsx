@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import Login from './Pages/Login'
       import { Toaster } from 'react-hot-toast'
       import Dashboard from './Pages/Dashboard'
-      import ProtectedRoute from './Components/ProtectedRoute'
+      import ProtectedRoutes from './Components/ProtectedRoute'
       // import RoleRoute from './Components/RoleRoute'
       // import DashboardLayout from './Components/Layout/DashboardLayout'
       // import Organizations from './Pages/Owner/Organizations'
@@ -29,7 +29,7 @@ const App = () => {
       <Route path='/' element={<LandingPage />} />  
       <Route path='/login' element={<Login />} />
       
-      <Route element={<ProtectedRoute />}>
+      <Route element={<ProtectedRoutes />}>
         <Route path='/dashboard' element={<Dashboard />} />
       </Route>
 
