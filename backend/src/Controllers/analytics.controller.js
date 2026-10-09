@@ -1,5 +1,5 @@
-const { Organization } = require("../models/Organization.schema")
-const { User } = require("../models/User.schema")
+const { Organization } = require("../Models/Organization.schema")
+const { User } = require("../Models/User.schema")
 
 const getAnalytics = async(req, res) => {
 

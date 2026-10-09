@@ -12,6 +12,8 @@ router.get(
 )
 
 
+
+
 router.get(
     "/tasks/:taskId",
     isLoggedIn,
@@ -20,6 +22,9 @@ router.get(
     getTaskById
 )
 
+
+
+
 router.patch(
     "/tasks/:taskId",
     isLoggedIn,
@@ -27,6 +32,11 @@ router.patch(
     isOrganizationActive,
     updateTaskEmployee
 )
+
+
+
+
+
 
 
 module.exports = {

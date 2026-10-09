@@ -1,5 +1,5 @@
 const mongoose = require("mongoose")
-const { Task } = require("../models/Task.schema")
+const { Task } = require("../Models/Task.schema")
 const { AppError } = require("../Utils/AppError")
 
 const populateTask = (query) => {

@@ -1,23 +1,13 @@
 const express = require("express")
 const router = express.Router()
-const{ authorize, isLoggedIn,isOrganizationActive} = require("../Middlewares/index")
-const { 
-    deleteTask, getTaskById, getAllTasks,
-     addTeam, getAllTeams, getTeamById, 
-    deleteTeam, updateTeam, 
-    createEmployee, getAllEmployeesByTeamId, 
-    updateEmployee, 
-    deleteEmployee, 
-    createTask, 
-    updateTask 
-    } = require("../Controllers/admin.controller")
+const{ authorize, isLoggedIn, isOrganizationActive} = require("../Middlewares/index")
+const { deleteTask, getTaskById, getAllTasks, addTeam, getAllTeams, getTeamById, deleteTeam, updateTeam, createEmployee, getAllEmployeesByTeamId, updateEmployee, deleteEmployee, createTask, updateTask } = require("../Controllers/admin.controller")
 
 router.post(
     "/teams", 
     isLoggedIn, 
-     
+    isOrganizationActive,
     authorize("admin"), 
-    isOrganizationActive, 
     addTeam
 )
 
@@ -57,9 +47,9 @@ router.patch(
 
 
 
-// /*
-//     - Admin's APIs for employees
-// */
+/*
+    - Admin's APIs for employees
+*/
 
 
 
@@ -81,33 +71,24 @@ router.get(
 
 
 
-// // router.get(
-// //     "/teams/:teamId/employees",
-// //     isLoggedIn,
-// //     isOrganizationActive,
-// //     authorize("admin"),
-// //     getAllEmployeesByTeamId
-// // )
+// router.get(
+//     "/teams/:teamId/employees",
+//     isLoggedIn,
+//     isOrganizationActive,
+//     authorize("admin"),
+//     getAllEmployeesByTeamId
+// )
 
 
 
-// // router.get(
-// //     "/teams/:teamId/employees",
-// //     isLoggedIn,
-// //     isOrganizationActive,
-// //     authorize("admin"),
-// //     getAllEmployeesByTeamId
-// // )
+// router.get(
+//     "/teams/:teamId/employees",
+//     isLoggedIn,
+//     isOrganizationActive,
+//     authorize("admin"),
+//     getAllEmployeesByTeamId
+// )
 
-
-
-router.delete(
-    "/employees/:employeeId",
-    isLoggedIn,
-    isOrganizationActive,
-    authorize("admin"),
-    deleteEmployee
-)
 
 
 router.patch(
@@ -120,11 +101,17 @@ router.patch(
 
 
 
+router.delete(
+    "/employees/:employeeId",
+    isLoggedIn,
+    isOrganizationActive,
+    authorize("admin"),
+    deleteEmployee
+)
 
-
-// /*
-//     - Admin's Task APIs
-// */
+/*
+    - Admin's Task APIs
+*/
 
 
 router.post(

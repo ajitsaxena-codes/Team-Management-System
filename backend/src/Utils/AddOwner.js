@@ -1,7 +1,9 @@
 const bcrypt = require("bcrypt")
-const { User } = require("../models/User.schema")
+const { User } = require("../Models/User.schema")
 
-const addOwner = (password, name, email) => {
+
+
+const addUser = (password, name, email, role) => {
 
     bcrypt.hash(password, 10)
     .then((data) => {
@@ -9,10 +11,10 @@ const addOwner = (password, name, email) => {
             name ,
             email ,
             password : data,
-            role : "owner"
+            role : role
         })
     })
 }
 
 
-module.exports = { addOwner }
+module.exports = { addUser }
