@@ -42,8 +42,8 @@ router.post("/login", async(req, res) => {
     .cookie("token", token, {
         maxAge : 24 * 60 * 60 * 1000,
         httpOnly : true,
-        sameSite : "strict",
-        // secure : true
+        sameSite : "none",
+        secure : true
     })
     .json({
         message : "User logged in"
@@ -55,7 +55,11 @@ router.post("/login", async(req, res) => {
 router.post("/logout", (req, res) => {
     res
     .status(200)
-    .clearCookie("token")
+    .clearCookie("token",{
+        httpOnly : true,
+        sameSite : "none",
+        secure : true
+    })
     .json({
         message : "User logged out"
     })
